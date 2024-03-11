@@ -13,15 +13,12 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        SinhVien sinhVien = new SinhVien("Ph12345","Nguyen Van A", 20,"HCM");
+        SinhVien sinhVien = new SinhVien("Ph12345", "Nguyen Van A", 20, "HCM");
         request.setAttribute("sinhVien", sinhVien);
-        ArrayList<String> str = new ArrayList<>();
-        str.add("Nguyen Van A");
-        str.add("Nguyen Van B");
-        str.add("Nguyen Van C");
-        str.add("Nguyen Van B");
-
-
+        ArrayList<SinhVien> list = new ArrayList<>();
+        list.add(sinhVien);
+        list.add(new SinhVien("Ph12311","Nguyen Thi B", 21,"HN"));
+        request.setAttribute("listSinhVien", list);
         request.getRequestDispatcher("/sinh-vien/trang-chu.jsp").forward(request, response);
     }
 
