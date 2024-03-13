@@ -19,5 +19,18 @@ public class SinhVien {
 
     private String diaChi;
 
+    private String gioiTinh;
+//
+    private String tenLop;// load tren selection
 
+
+    @Override
+    public String toString() {
+        return "SinhVien{" +
+                "maSv='" + maSv + '\'' +
+                ", tenSv='" + tenSv + '\'' +
+                ", tuoi=" + tuoi +
+                ", diaChi='" + diaChi + '\'' +
+                '}';
+    }
 }

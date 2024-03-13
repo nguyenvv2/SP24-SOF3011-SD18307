@@ -15,14 +15,50 @@
 </head>
 <body class="container">
 
-<h1>Day la trang chu</h1>
-<h1>Ma sinh vien: ${sinhVien.getMaSv()}</h1>
-<h1>Ho va ten sinh vien: ${sinhVien.tenSv}</h1>
-<h1>Tuoi sinh vien: ${sinhVien.getTuoi()}</h1>
-<h1>Dia chi sinh vien: ${sinhVien.getDiaChi()}</h1
+<form action="/sinh-vien/add" method="post">
+    <div class="mb-3">
+        <label class="form-label">Ma sinh vien</label>
+        <input type="text" class="form-control" name="maSinhVien">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Ten sinh vien</label>
+        <input type="text" class="form-control" name="tenSinhVien">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Tuoi</label>
+        <input type="text" class="form-control" name="tuoi">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Dia Chi</label>
+        <input type="text" class="form-control" name="diaChi">
+    </div>
+    <div class="mb-3">
+        <label for="disabledSelect" class="form-label">Ten lop</label>
+        <select id="disabledSelect" class="form-select">
+            <option>SD123</option>
+            <option>SD124</option>
+            <option>SD125</option>
+        </select>
+    </div>
+    <div class="row">
+        <p class="col-4">    Gioi tinh
+        </p>
+        <div class="form-check col-4">
+            <input class="form-check-input" type="radio" value="Nam" name="gioiTinh">
+            <label class="form-check-label">
+                Nam
+            </label>
+        </div>
+        <div class="form-check col-4">
+            <input class="form-check-input" type="radio" value="Nu" name="gioiTinh">
+            <label class="form-check-label">
+                Nu
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 <h1>Danh sach sinh vien</h1>
-
-
 <table class="table">
     <thead>
     <tr>
@@ -31,6 +67,7 @@
         <td>Ho ten</td>
         <td>Dia chi</td>
         <td>Tuoi</td>
+        <td>Gioi tinh</td>
     </tr>
     </thead>
     <tbody>
@@ -41,6 +78,7 @@
             <td>${s.tenSv}</td>
             <td>${s.diaChi}</td>
             <td>${s.tuoi}</td>
+            <td>${s.gioiTinh}</td>
         </tr>
     </c:forEach>
     </tbody>
