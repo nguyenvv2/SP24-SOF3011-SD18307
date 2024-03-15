@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @WebServlet(name = "HomeServlet", value = {"/sinh-vien/trang-chu", // GET
         "/sinh-vien/add", // POST
         "/sinh-vien/detail", //GET
-        "/sinh-vien/update/*",// POST
+        "/sinh-vien/update",// POST
 })
 public class HomeServlet extends HttpServlet {
     ArrayList<SinhVien> list;
@@ -68,23 +68,23 @@ public class HomeServlet extends HttpServlet {
             response.sendRedirect("/sinh-vien/trang-chu");
         } else if (uri.contains("/sinh-vien/update")) {
             // lam update
-            String maSinhVien = request.getPathInfo();
+            String maSinhVien = request.getParameter("maSinhVien");
             String tenSinhVien = request.getParameter("tenSinhVien");
             System.out.println("Ma sinh vien :" + maSinhVien);
-//            Integer tuoi = Integer.parseInt(request.getParameter("tuoi"));
-//            String diaChi = request.getParameter("diaChi");
-//            String gioiTinh = request.getParameter("gioiTinh");
-//            String lop = request.getParameter("lop");
-//            for (SinhVien sv : list) {
-//                if (maSinhVien.equals(sv.getMaSv())) {
-//                    sv.setTuoi(tuoi);
-//                    sv.setGioiTinh(gioiTinh);
-//                    sv.setDiaChi(diaChi);
-//                    sv.setTenSv(tenSinhVien);
-//                    sv.setTenLop(lop);
-//                }
-//            }
-//            response.sendRedirect("/sinh-vien/trang-chu");
+            Integer tuoi = Integer.parseInt(request.getParameter("tuoi"));
+            String diaChi = request.getParameter("diaChi");
+            String gioiTinh = request.getParameter("gioiTinh");
+            String lop = request.getParameter("lop");
+            for (SinhVien sv : list) {
+                if (maSinhVien.equals(sv.getMaSv())) {
+                    sv.setTuoi(tuoi);
+                    sv.setGioiTinh(gioiTinh);
+                    sv.setDiaChi(diaChi);
+                    sv.setTenSv(tenSinhVien);
+                    sv.setTenLop(lop);
+                }
+            }
+            response.sendRedirect("/sinh-vien/trang-chu");
         }
     }
 }

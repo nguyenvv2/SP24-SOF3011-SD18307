@@ -17,7 +17,7 @@
 </head>
 <body class="container">
 
-<form action="/sinh-vien/update/${sinhVien.maSv}" method="post">
+<form action="/sinh-vien/update" method="post">
     <div class="mb-3">
         <label class="form-label">Ma sinh vien</label>
         <input type="text" class="form-control" name="maSinhVien" value="${sinhVien.maSv}">
