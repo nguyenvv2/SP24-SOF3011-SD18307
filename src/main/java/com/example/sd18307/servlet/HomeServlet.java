@@ -12,6 +12,7 @@ import java.util.ArrayList;
         "/sinh-vien/add", // POST
         "/sinh-vien/detail", //GET
         "/sinh-vien/update",// POST
+        "/sinh-vien/delete", //GET
 })
 public class HomeServlet extends HttpServlet {
     ArrayList<SinhVien> list;
@@ -49,6 +50,15 @@ public class HomeServlet extends HttpServlet {
             request.setAttribute("sinhVien", sinhVien);
             request.setAttribute("lops", lops);
             request.getRequestDispatcher("/sinh-vien/chi-tiet.jsp").forward(request, response);
+        } else if (uri.contains("/sinh-vien/delete")) {
+            String id = request.getParameter("id");
+            for (SinhVien sinhVien : list) {
+                if (sinhVien.getMaSv().equals(id)) {
+                    list.remove(sinhVien);
+                    break;
+                }
+            }
+            response.sendRedirect("/sinh-vien/trang-chu");
         }
     }
 

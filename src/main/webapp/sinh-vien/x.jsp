@@ -1,40 +1,39 @@
 <%--
   Created by IntelliJ IDEA.
   User: nguyenvv
-  Date: 08/03/2024
-  Time: 12:55
+  Date: 18/03/2024
+  Time: 13:31
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>  <%--import thư viện vào jsp --%>
 <html>
 <head>
-    <title>Sinh vien</title>
+    <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body class="container">
+<body>
 
 <form action="/sinh-vien/add" method="post">
     <div class="mb-3">
-        <label class="form-label">Ma sinh vien</label>
-        <input type="text" class="form-control" name="maSinhVien">
+        <label class="form-label">Ma nhan vien</label>
+        <input type="text" class="form-control">
     </div>
     <div class="mb-3">
-        <label class="form-label">Ten sinh vien</label>
-        <input type="text" class="form-control" name="tenSinhVien">
+        <label class="form-label">Ten nhan vien</label>
+        <input type="text" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Tuoi</label>
-        <input type="text" class="form-control" name="tuoi">
+        <input type="text" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Dia Chi</label>
-        <input type="text" class="form-control" name="diaChi">
+        <input type="text" class="form-control">
     </div>
     <div class="mb-3">
-        <label for="disabledSelect" class="form-label">Ten lop</label>
-        <select id="disabledSelect" class="form-select" name="lop">
+        <label for="disabledSelect" class="form-label">Phong ban</label>
+        <select id="disabledSelect" class="form-select">
             <c:forEach items="${lops}" var="lop">
                 <option value="${lop}">${lop}</option>
             </c:forEach>
@@ -44,13 +43,13 @@
         <p class="col-4"> Gioi tinh
         </p>
         <div class="form-check col-4">
-            <input class="form-check-input" type="radio" value="Nam" name="gioiTinh">
+            <input class="form-check-input" type="radio" value="Nam">
             <label class="form-check-label">
                 Nam
             </label>
         </div>
         <div class="form-check col-4">
-            <input class="form-check-input" type="radio" value="Nu" name="gioiTinh">
+            <input class="form-check-input" type="radio" value="Nu">
             <label class="form-check-label">
                 Nu
             </label>
@@ -58,36 +57,29 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-<h1>Danh sach sinh vien</h1>
+<h1>Chuc nang tim kiem</h1>
+<div class="mb-3">
+    <label class="form-label">Ten Nhan Vien</label>
+    <input type="text" class="form-control">
+
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+<h1>Danh sach nhan vien</h1>
 <table class="table">
     <thead>
     <tr>
         <td>STT</td>
-        <td>Ma Sinh Vien</td>
+        <td>Ma Nhan Vien</td>
         <td>Ho ten</td>
         <td>Dia chi</td>
         <td>Tuoi</td>
         <td>Gioi tinh</td>
-        <td>Lop</td>
+        <td>Phong ban</td>
         <td>Chuc nang</td>
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="s" items="${listSinhVien}" varStatus="i">
-        <tr>
-            <td>${i.index + 1}</td>
-            <td>${s.maSv}</td>
-            <td>${s.tenSv}</td>
-            <td>${s.diaChi}</td>
-            <td>${s.tuoi}</td>
-            <td>${s.gioiTinh}</td>
-            <td>${s.tenLop}</td>
-            <td>
-                <a href="/sinh-vien/detail?id=${s.maSv}" class="btn btn-primary">Chi tiet</a>
-                <a href="/sinh-vien/delete?id=${s.maSv}" class="btn btn-primary">Xoa</a>
-            </td>
-        </tr>
-    </c:forEach>
+
     </tbody>
 </table>
 </body>

@@ -20,7 +20,7 @@
 <form action="/sinh-vien/update" method="post">
     <div class="mb-3">
         <label class="form-label">Ma sinh vien</label>
-        <input type="text" class="form-control" name="maSinhVien" value="${sinhVien.maSv}">
+        <input type="text" class="form-control" name="maSinhVien" value="${sinhVien.maSv}" readonly>
     </div>
     <div class="mb-3">
         <label class="form-label">Ten sinh vien</label>
@@ -38,7 +38,9 @@
         <label for="disabledSelect" class="form-label">Ten lop</label>
         <select id="disabledSelect" class="form-select" name="lop">
             <c:forEach items="${lops}" var="lop">
-                <option value="${lop}">${lop}</option>
+                <option value="${lop}"
+                        <c:if test="${sinhVien.tenLop == lop }"> selected</c:if>
+                >${lop}</option>
             </c:forEach>
         </select>
     </div>
@@ -46,13 +48,21 @@
         <p class="col-4"> Gioi tinh
         </p>
         <div class="form-check col-4">
-            <input class="form-check-input" type="radio" value="Nam" name="gioiTinh">
+            <input class="form-check-input" type="radio" value="Nam" name="gioiTinh"
+            <c:if test="${sinhVien.gioiTinh == 'Nam'}">
+                   checked
+            </c:if>
+            >
             <label class="form-check-label">
                 Nam
             </label>
         </div>
         <div class="form-check col-4">
-            <input class="form-check-input" type="radio" value="Nu" name="gioiTinh">
+            <input class="form-check-input" type="radio" value="Nu" name="gioiTinh"
+            <c:if test="${sinhVien.gioiTinh == 'Nu'}">
+                   checked
+            </c:if>
+            >
             <label class="form-check-label">
                 Nu
             </label>
