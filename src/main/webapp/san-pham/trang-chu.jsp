@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: nguyenvv
-  Date: 08/03/2024
-  Time: 12:55
+  Date: 25/03/2024
+  Time: 12:51
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,42 +13,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body class="container">
-
-<form action="/danh-muc/add" method="post">
-    <div class="mb-3">
-        <label class="form-label">Ma danh muc</label>
-        <input type="text" class="form-control" name="maDanhMuc">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Ten danh muc</label>
-        <input type="text" class="form-control" name="tenDanhMuc">
-    </div>
-
-    <div class="row">
-        <p class="col-4"> Trang thai
-        </p>
-        <div class="form-check col-4">
-            <input class="form-check-input" type="radio" value="Active" name="trangThai">
-            <label class="form-check-label">
-                Active
-            </label>
-        </div>
-        <div class="form-check col-4">
-            <input class="form-check-input" type="radio" value="Inactive" name="trangThai">
-            <label class="form-check-label">
-                Inactive
-            </label>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<h1>Danh sach danh muc</h1>
+<body>
+<h1>Danh sach san pham</h1>
 <table class="table">
     <thead>
     <tr>
         <td>ID</td>
-        <td>Ma Danh Muc</td>
+        <td>Ma San Pham</td>
+        <td>Ten San Pham</td>
         <td>Ten Danh Muc</td>
         <td>Trang Thai</td>
         <td>Ngay Tao</td>
@@ -60,8 +32,9 @@
     <c:forEach var="s" items="${list}" varStatus="i">
         <tr>
             <td>${s.id}</td>
-            <td>${s.maDanhMuc}</td>
-            <td>${s.tenDanhMuc}</td>
+            <td>${s.maSanPham}</td>
+            <td>${s.tenSanPham}</td>
+            <td>${s.danhMuc.tenDanhMuc}</td>
             <td>${s.trangThai}</td>
             <td>${s.ngayTao}</td>
             <td>${s.ngaySua}</td>
